@@ -1,5 +1,7 @@
 package com.utk.main;
 
+import java.util.function.Supplier;
+
 import org.springframework.beans.BeansException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -12,9 +14,15 @@ public class Main {
 
 		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
 				ProjectConfig.class)) {
-			Parrot parrot1 = (Parrot) applicationContext.getBean(Parrot.class);
-			System.out.println(parrot1);
-			System.out.println(parrot1.getName());
+			Parrot parrot = new Parrot();
+			parrot.setName("miki");
+
+			Supplier<Parrot> supplierParrot = () -> parrot;
+
+			applicationContext.registerBean("miki", Parrot.class, supplierParrot);
+			Parrot registeredParrot = applicationContext.getBean(Parrot.class);
+			System.out.println(registeredParrot.getName());
+
 		} catch (BeansException e) {
 			e.printStackTrace();
 		}
