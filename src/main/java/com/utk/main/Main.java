@@ -25,6 +25,13 @@ public class Main {
 
 			Integer number = applicationContext.getBean(Integer.class);
 			System.out.println(number);
+
+			Parrot parrotPrimary = applicationContext.getBean(Parrot.class);// @Primary annotation is added at the bean
+																			// level to remove ambiguity and fetch only
+																			// primary bean when fetching wit type only.
+																			// No exception will be thrown and the
+																			// primary bean will be fetched
+			System.out.println(parrotPrimary.getName());
 		} catch (BeansException e) {
 			e.printStackTrace();
 		}
