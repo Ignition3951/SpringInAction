@@ -1,5 +1,7 @@
 package com.utk.model;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,6 +15,11 @@ public class Parrot {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@PostConstruct
+	public void init() {
+		this.name = "Stereotype Parrot";
 	}
 
 }
