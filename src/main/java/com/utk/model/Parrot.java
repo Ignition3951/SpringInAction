@@ -1,8 +1,11 @@
 package com.utk.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Parrot {
 
-	String name;
+	private String name = "Koko";
 
 	public Parrot() {
 		System.out.println("Parrot got generated!!!!!!!!!");

@@ -1,9 +1,15 @@
 package com.utk.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Person {
 
-	String name;
-	Parrot parrot;
+	private String name = "Person1";
+
+	@Autowired
+	private Parrot parrot;
 
 	public String getName() {
 		return name;
