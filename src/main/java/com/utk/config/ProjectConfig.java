@@ -12,7 +12,7 @@ public class ProjectConfig {
 	@Bean
 	Parrot parrot() {
 		Parrot parrot = new Parrot();
-		parrot.setName("Miki");
+		parrot.setName("Koko");
 		return parrot;
 	}
 
@@ -27,12 +27,11 @@ public class ProjectConfig {
 	}
 
 	@Bean
-	Person person() {
+	Person person(Parrot parrot) {
 		Person person = new Person();
 		person.setName("Person1");
-		person.setParrot(parrot());// The parrot object will be generated only once and that instance will be
-									// referenced from person context of spring checks for an instance if it finds
-									// one then that object is alloted to the referenced variable.
+		person.setParrot(parrot);// Spring injects the dependency by automatically checking for the object
+									// required
 		return person;
 	}
 }
