@@ -2,7 +2,7 @@ package com.utk.model;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("componentBean")
 public class Parrot {
 
 	private String name = "Koko";
