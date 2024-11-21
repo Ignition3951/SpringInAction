@@ -1,9 +1,12 @@
 package com.utk.service;
 
+import org.springframework.stereotype.Component;
+
 import com.utk.model.Comment;
 import com.utk.proxies.CommentNotificationProxy;
 import com.utk.repositories.CommentRepository;
 
+@Component
 public class CommentService {
 
 	private final CommentRepository commentRepository;

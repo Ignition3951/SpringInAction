@@ -1,7 +1,10 @@
 package com.utk.proxies;
 
+import org.springframework.stereotype.Component;
+
 import com.utk.model.Comment;
 
+@Component
 public class EmailNotificationProxy implements CommentNotificationProxy {
 
 	@Override

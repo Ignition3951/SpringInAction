@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import com.utk.model.Parrot;
 
 @Configuration
-@ComponentScan(basePackages = { "com.utk.model" })
+@ComponentScan(basePackages = { "com.utk.model", "com.utk.service", "com.utk.repositories", "com.utk.proxies" })
 public class ProjectConfig {
 
 	@Bean("parrotNaming")
