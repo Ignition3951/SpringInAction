@@ -1,10 +1,12 @@
 package com.utk.proxies;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.utk.model.Comment;
 
 @Component
+@Qualifier("EMAIL")
 public class EmailNotificationProxy implements CommentNotificationProxy {
 
 	@Override

@@ -1,6 +1,7 @@
 package com.utk.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.utk.model.Comment;
@@ -14,6 +15,7 @@ public class CommentService {
 	private CommentRepository commentRepository;
 
 	@Autowired
+	@Qualifier("EMAIL")
 	private CommentNotificationProxy commentNotificationProxy;
 
 	public void publishComment(Comment comment) {
