@@ -1,5 +1,6 @@
 package com.utk.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.utk.model.Comment;
@@ -9,13 +10,11 @@ import com.utk.repositories.CommentRepository;
 @Component
 public class CommentService {
 
-	private final CommentRepository commentRepository;
-	private final CommentNotificationProxy commentNotificationProxy;
+	@Autowired
+	private CommentRepository commentRepository;
 
-	public CommentService(CommentRepository commentRepository, CommentNotificationProxy commentNotificationProxy) {
-		this.commentRepository = commentRepository;
-		this.commentNotificationProxy = commentNotificationProxy;
-	}
+	@Autowired
+	private CommentNotificationProxy commentNotificationProxy;
 
 	public void publishComment(Comment comment) {
 		commentRepository.storeComment(comment);
