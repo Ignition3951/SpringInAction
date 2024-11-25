@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.utk.aspect.ToLog;
 import com.utk.model.Comment;
 import com.utk.proxies.CommentNotificationProxy;
 import com.utk.repositories.CommentRepository;
@@ -22,6 +23,7 @@ public class CommentService {
 	@Qualifier("EMAIL")
 	private CommentNotificationProxy commentNotificationProxy;
 
+	@ToLog
 	public String publishComment(Comment comment) {
 		logger.info("Comment published by : " + comment.getAuthor());
 		commentRepository.storeComment(comment);
