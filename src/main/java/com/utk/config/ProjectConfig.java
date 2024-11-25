@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import com.utk.aspect.LoggingAspect;
+import com.utk.aspect.SecurityAspect;
 import com.utk.model.Parrot;
 
 @Configuration
@@ -31,5 +32,10 @@ public class ProjectConfig {
 	@Bean
 	public LoggingAspect aspect() {
 		return new LoggingAspect();
+	}
+
+	@Bean
+	public SecurityAspect secure() {
+		return new SecurityAspect();
 	}
 }
