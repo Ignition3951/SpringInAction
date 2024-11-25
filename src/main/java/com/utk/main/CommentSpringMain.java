@@ -18,6 +18,7 @@ public class CommentSpringMain {
 			comment.setText("Demo text using framework!!!!!!!!");
 
 			CommentService commentService = applicationContext.getBean(CommentService.class);
+			System.out.println(commentService.getClass());
 			commentService.publishComment(comment);
 		} catch (BeansException e) {
 			e.printStackTrace();

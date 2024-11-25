@@ -3,11 +3,15 @@ package com.utk.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
+import com.utk.aspect.LoggingAspect;
 import com.utk.model.Parrot;
 
 @Configuration
-@ComponentScan(basePackages = { "com.utk.model", "com.utk.service", "com.utk.repositories", "com.utk.proxies" })
+@ComponentScan(basePackages = { "com.utk.model", "com.utk.service", "com.utk.repositories", "com.utk.proxies",
+		"com.utk.aspect" })
+@EnableAspectJAutoProxy
 public class ProjectConfig {
 
 	@Bean("parrotNaming")
@@ -22,5 +26,10 @@ public class ProjectConfig {
 		Parrot parrot = new Parrot();
 		parrot.setName("parrot2");
 		return parrot;
+	}
+
+	@Bean
+	public LoggingAspect aspect() {
+		return new LoggingAspect();
 	}
 }

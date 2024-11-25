@@ -1,5 +1,7 @@
 package com.utk.service;
 
+import java.util.logging.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,8 @@ import com.utk.repositories.CommentRepository;
 @Service
 public class CommentService {
 
+	private Logger logger = Logger.getLogger(CommentService.class.getName());
+
 	@Autowired
 	private CommentRepository commentRepository;
 
@@ -19,6 +23,7 @@ public class CommentService {
 	private CommentNotificationProxy commentNotificationProxy;
 
 	public void publishComment(Comment comment) {
+		logger.info("Comment published by : " + comment.getAuthor());
 		commentRepository.storeComment(comment);
 		commentNotificationProxy.sendComment(comment);
 	}
