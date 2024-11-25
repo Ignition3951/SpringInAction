@@ -21,4 +21,9 @@ public class Comment {
 		this.text = text;
 	}
 
+	@Override
+	public String toString() {
+		return "Comment [author=" + author + ", text=" + text + "]";
+	}
+
 }

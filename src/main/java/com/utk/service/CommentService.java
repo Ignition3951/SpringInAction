@@ -22,10 +22,11 @@ public class CommentService {
 	@Qualifier("EMAIL")
 	private CommentNotificationProxy commentNotificationProxy;
 
-	public void publishComment(Comment comment) {
+	public String publishComment(Comment comment) {
 		logger.info("Comment published by : " + comment.getAuthor());
 		commentRepository.storeComment(comment);
 		commentNotificationProxy.sendComment(comment);
+		return "SUCCESS";
 	}
 
 }
